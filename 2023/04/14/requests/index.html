@@ -13,16 +13,20 @@
     
     <!--- Seo Part-->
     
-    <link rel="canonical" href="http://example.com/archives/2023/"/>
+    <link rel="canonical" href="http://example.com/2023/04/14/requests/"/>
     <meta name="robots" content="index,follow">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="1 days">
     
-        <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2023/index.html">
+        <meta name="description" content="参考：Developer Interface — Requests 2.28.2 documentation  0 快速上手1 主要接口12345requests.request(method, url, **kwargs)requests.get(url, **kwargs)requests.post(url, data&#x3D;None, **kwargs)  2 requests.Session12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="requests.md">
+<meta property="og:url" content="http://example.com/2023/04/14/requests/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="参考：Developer Interface — Requests 2.28.2 documentation  0 快速上手1 主要接口12345requests.request(method, url, **kwargs)requests.get(url, **kwargs)requests.post(url, data&#x3D;None, **kwargs)  2 requests.Session12">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-04-14T14:44:50.509Z">
+<meta property="article:modified_time" content="2023-04-14T14:45:35.443Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
     
@@ -35,7 +39,7 @@
     
     <title>
         
-            Archive: 2023 -
+            requests.md -
         
         airsku&#39;s blogs
     </title>
@@ -184,60 +188,143 @@
 
                 
                     <div class="fade-in-down-animation">
-    <div class="archive-container ">
-        
-<div class="archive-list-container">
+    <div class="post-page-container">
+        <div class="article-content-container">
+
+            
+            
+                <div class="article-title">
+                    <h1 class="article-title-regular">requests.md</h1>
+                </div>
+            
+                
+            
+
+            
+                <div class="article-header">
+                    <div class="avatar">
+                        <img src="/images/redefine-avatar.svg">
+                    </div>
+                    <div class="info">
+                        <div class="author">
+                            <span class="name">airsku</span>
+                            
+                                <span class="author-label"></span>
+                            
+                        </div>
+                        <div class="meta-info">
+                            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa-regular fa-pen-fancy"></i>&nbsp;
+        <span class="desktop">2023-04-14 22:44:50</span>
+        <span class="mobile">2023-04-14 22:44</span>
+        <span class="hover-info">Created</span>
+    </span>
     
-        <section class="archive-item">
-            <div class="archive-item-header">
-                <span class="archive-year">2023</span>
-                <span class="archive-year-post-count">[6]</span>
-            </div>
-            <ul class="article-list">
-              
-              <li class="article-item" date-is='04-14'>
-                <a href="/2023/04/14/NumPy/">
-                  <span class="article-title">NumPy.md</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='04-14'>
-                <a href="/2023/04/14/Pandas/">
-                  <span class="article-title">Pandas.md</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='04-14'>
-                <a href="/2023/04/14/requests/">
-                  <span class="article-title">requests.md</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='04-14'>
-                <a href="/2023/04/14/%E6%9C%89%E7%94%A8%E7%9A%84%E6%A8%A1%E5%9D%97/">
-                  <span class="article-title">有用的模块.md</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='04-14'>
-                <a href="/2023/04/14/%E5%B8%B8%E7%94%A8%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97/">
-                  <span class="article-title">常用内置模块.md</span>
-                </a>
-              </li>
-              
-              <li class="article-item" date-is='04-14'>
-                <a href="/2023/04/14/Python%E7%AC%94%E8%AE%B0/">
-                  <span class="article-title">Python笔记.md</span>
-                </a>
-              </li>
-              
-            </ul>
-        </section>
+        <span class="article-date article-meta-item">
+            <i class="fa-regular fa-wrench"></i>&nbsp;
+            <span class="desktop">2023-04-14 22:45:35</span>
+            <span class="mobile">2023-04-14 22:45</span>
+            <span class="hover-info">Updated</span>
+        </span>
+    
+
+    
+    
+
+    
+    
+    
     
 </div>
 
+                        </div>
+                    </div>
+                </div>
+            
+
+            <div class="article-content markdown-body">
+                <p>参考：<a class="link"   target="_blank" rel="noopener" href="https://requests.readthedocs.io/en/latest/api/" >Developer Interface — Requests 2.28.2 documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<h2 id="0-快速上手"><a href="#0-快速上手" class="headerlink" title="0 快速上手"></a>0 快速上手</h2><h2 id="1-主要接口"><a href="#1-主要接口" class="headerlink" title="1 主要接口"></a>1 主要接口</h2><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">requests.request(method, url, **kwargs)</span><br><span class="line"></span><br><span class="line">requests.get(url, **kwargs)</span><br><span class="line"></span><br><span class="line">requests.post(url, data=<span class="literal">None</span>, **kwargs)</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="2-requests-Session"><a href="#2-requests-Session" class="headerlink" title="2 requests.Session"></a>2 requests.Session</h2><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">s=requests.Session()</span><br><span class="line"></span><br><span class="line">s.close()</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> requests.Session() <span class="keyword">as</span> s:</span><br><span class="line">	s.request(method,url)</span><br><span class="line">	s.get(url)</span><br><span class="line">	s.post(url,data=<span class="literal">None</span>)</span><br><span class="line"></span><br><span class="line">s.cookies</span><br><span class="line"></span><br><span class="line">s.headers</span><br></pre></td></tr></table></figure></div>
+
+<h2 id="3-requests-Response"><a href="#3-requests-Response" class="headerlink" title="3 requests.Response"></a>3 requests.Response</h2><p>get,post,request等方法均返回一个response对象。</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">res=requests.get(url)</span><br><span class="line"></span><br><span class="line">res.content <span class="comment"># 响应的内容，二进制形式</span></span><br><span class="line">res.text <span class="comment"># 响应的内容，unicode形式</span></span><br><span class="line">res.headers</span><br><span class="line">res.cookies</span><br><span class="line">res.url</span><br></pre></td></tr></table></figure></div>
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+            
+
+            
+
+            
+
+            
+                <div class="article-nav">
+                    
+                        <div class="article-prev">
+                            <a class="prev"
+                            rel="prev"
+                            href="/2023/04/14/%E5%B8%B8%E7%94%A8%E5%86%85%E7%BD%AE%E6%A8%A1%E5%9D%97/"
+                            >
+                                <span class="left arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-left"></i>
+                                </span>
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">常用内置模块.md</span>
+                                    <span class="post-nav-item">Prev posts</span>
+                                </span>
+                            </a>
+                        </div>
+                    
+                    
+                        <div class="article-next">
+                            <a class="next"
+                            rel="next"
+                            href="/2023/04/14/Python%E7%AC%94%E8%AE%B0/"
+                            >
+                                <span class="title flex-center">
+                                    <span class="post-nav-title-item">Python笔记.md</span>
+                                    <span class="post-nav-item">Next posts</span>
+                                </span>
+                                <span class="right arrow-icon flex-center">
+                                    <i class="fa-solid fa-chevron-right"></i>
+                                </span>
+                            </a>
+                        </div>
+                    
+                </div>
+            
+
+
+            
+        </div>
+
+        
+            <div class="toc-content-container">
+                <div class="post-toc-wrap">
+    <div class="post-toc">
+        <div class="toc-title">On this page</div>
+        <div class="page-title">requests.md</div>
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0-%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B"><span class="nav-text">0 快速上手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%B8%BB%E8%A6%81%E6%8E%A5%E5%8F%A3"><span class="nav-text">1 主要接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-requests-Session"><span class="nav-text">2 requests.Session</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-requests-Response"><span class="nav-text">3 requests.Response</span></a></li></ol>
+
     </div>
 </div>
+            </div>
+        
+    </div>
+</div>
+
 
                 
 
@@ -313,6 +400,23 @@
         </div>
     </div>
 
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+    </ul>
+</div>
+
+        </div>
     
 
     <div class="right-side-tools-container">
@@ -424,6 +528,16 @@
 
 
 <div class="post-scripts pjax">
+    
+        
+<script src="/js/tools/tocToggle.js"></script>
+
+<script src="/js/libs/anime.min.js"></script>
+
+<script src="/js/layouts/toc.js"></script>
+
+<script src="/js/plugins/tabs.js"></script>
+
     
 </div>
 
