@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="airsku">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://example.com/program/python/pyautogui/pyautogui.html"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="https:&#x2F;&#x2F;blog.csdn.net&#x2F;hfy1237&#x2F;article&#x2F;details&#x2F;127960423   一、前言PyAutoGUI  让您的 Python 脚本控制鼠标和键盘以自动与其他应用程序交互。 官方文档：PyAutoGUI documentation  常用函数列表    函数名 功能    &#x3D;&#x3D;基本&#x3D;&#x3D;    pyautogui.si">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/program/Python/pyautogui/pyautogui.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="https:&#x2F;&#x2F;blog.csdn.net&#x2F;hfy1237&#x2F;article&#x2F;details&#x2F;127960423   一、前言PyAutoGUI  让您的 Python 脚本控制鼠标和键盘以自动与其他应用程序交互。 官方文档：PyAutoGUI documentation  常用函数列表    函数名 功能    &#x3D;&#x3D;基本&#x3D;&#x3D;    pyautogui.si">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://example.com/assets/430fda193a9324d0d55ee5f9d383665b_MD5.png">
+<meta property="article:published_time" content="2024-04-11T12:00:54.422Z">
+<meta property="article:modified_time" content="2024-04-11T12:00:54.422Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/430fda193a9324d0d55ee5f9d383665b_MD5.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/redefine-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+        airsku&#39;s blog
+    </title>
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+
+    <!--- Inject Part-->
+    
+
+    
+        <style>
+    :root {
+        --preloader-background-color: #fff;
+        --preloader-text-color: #000;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --preloader-background-color: #202124;
+            --preloader-text-color: #fff;
+        }
+    }
+
+    @media (prefers-color-scheme: light) {
+        :root {
+            --preloader-background-color: #fff;
+            --preloader-text-color: #000;
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml13 {
+            font-size: 2.6rem !important; /* Adjust this value as needed */
+        }
+    }
+
+    .preloader {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem; /* Tailwind 'gap-4' is 1rem */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        padding: 12px;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh; /* 'h-screen' is 100% of the viewport height */
+        background-color: var(--preloader-background-color);
+        z-index: 1100; /* 'z-[1100]' sets the z-index */
+        transition: opacity 0.2s ease-in-out;
+    }
+
+    .ml13 {
+        font-size: 3.2rem;
+        /* text-transform: uppercase; */
+        color: var(--preloader-text-color);
+        letter-spacing: -1px;
+        font-weight: 500;
+        font-family: 'Chillax-Variable', sans-serif;
+        text-align: center;
+    }
+
+    .ml13 .word {
+        display: inline-flex;
+        flex-wrap: wrap;
+        white-space: nowrap;
+    }
+
+    .ml13 .letter {
+        display: inline-block;
+        line-height: 1em;
+    }
+</style>
+
+<div class="preloader">
+    
+<script src="/js/libs/anime.min.js"></script>
+
+    <h1 class="ml13">
+        airsku&#39;s blog
+    </h1>
+    <script>
+        var textWrapper = document.querySelector('.ml13');
+        // Split text into words
+        var words = textWrapper.textContent.trim().split(' ');
+
+        // Clear the existing content
+        textWrapper.innerHTML = '';
+
+        // Wrap each word and its letters in spans
+        words.forEach(function(word) {
+            var wordSpan = document.createElement('span');
+            wordSpan.classList.add('word');
+            wordSpan.innerHTML = word.replace(/\S/g, "<span class='letter'>$&</span>");
+            textWrapper.appendChild(wordSpan);
+            textWrapper.appendChild(document.createTextNode(' ')); // Add space between words
+        });
+
+
+        anime.timeline({loop: true})
+            .add({
+                targets: '.ml13 .letter',
+                translateY: [100,0],
+                translateZ: 0,
+                opacity: [0,1],
+                easing: "easeOutExpo",
+                duration: 1400,
+                delay: (el, i) => 300 + 30 * i
+            }).add({
+            targets: '.ml13 .letter',
+            translateY: [0,-100],
+            opacity: [1,0],
+            easing: "easeInExpo",
+            duration: 1200,
+            delay: (el, i) => 100 + 30 * i
+        });
+
+        let themeStatus = JSON.parse(localStorage.getItem('REDEFINE-THEME-STATUS'))?.isDark;
+
+        // If the theme status is not found in local storage, check the preferred color scheme
+        if (themeStatus === undefined || themeStatus === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                themeStatus = 'dark';
+            } else {
+                themeStatus = 'light';
+            }
+        }
+
+        // Now you can use the themeStatus variable in your code
+        if (themeStatus) {
+            document.documentElement.style.setProperty('--preloader-background-color', '#202124');
+            document.documentElement.style.setProperty('--preloader-text-color', '#fff');
+        } else {
+            document.documentElement.style.setProperty('--preloader-background-color', '#fff');
+            document.documentElement.style.setProperty('--preloader-text-color', '#000');
+        }
+
+        window.addEventListener('load', function () {
+            hidePreloaderAfterTimeout(1000); // Hide after 1000 milliseconds once the window has loaded
+        });
+
+        // Backup failsafe: Hide preloader after a maximum of 5000 milliseconds, regardless of the window load event
+        hidePreloaderAfterTimeout(5000);
+
+        function hidePreloaderAfterTimeout(delay) {
+            setTimeout(function () {
+                var preloader = document.querySelector('.preloader');
+                preloader.style.opacity = '0';
+                setTimeout(function () {
+                    preloader.style.display = 'none';
+                }, 200);
+            }, delay);
+        }
+    </script>
+</div>
+    
+
+    
+<link rel="stylesheet" href="/css/style.css">
+
+
+    
+        
+<link rel="stylesheet" href="/assets/build/styles.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+
+
+    <script id="hexo-configurations">
+    window.config = {"hostname":"example.com","root":"/","language":"en"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left","headings_top_spacing":{"h1":"5rem","h2":"4rem","h3":"2.8rem","h4":"2.5rem","h5":"2.2rem","h6":"2rem"}},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null,"default_mode":"light"},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":true,"percentage":true},"website_counter":{"url":"https://cn.vercount.one/js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"preloader":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":false,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"airsku's blog","subtitle":{"text":[],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"style":"default","links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null,"lrc":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.6.1","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"width":{"home":"1200px","pages":"1000px"},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"},"主页":{"path":"/","icon":"fa-regular fa-house"},"编程":{"path":"/program"}},"search":{"enable":true,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":false,"position":"left","first_item":"menu","announcement":null,"show_on_mobile":true,"links":null},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s seconds ago","minute":"%s minutes ago","hour":"%s hours ago","day":"%s days ago","week":"%s weeks ago","month":"%s months ago","year":"%s years ago"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+<!--        <span class="swup-progress-icon">-->
+<!--            <i class="fa-solid fa-circle-notch fa-spin"></i>-->
+<!--        </span>-->
+    
+</div>
+
+
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container">
+
+
+        <div class="main-content-header">
+            <header class="navbar-container px-6 md:px-12">
+
+    <div class="navbar-content ">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                airsku&#39;s blog
+                
+            </a>
+        </div>
+
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    HOME
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class=""
+                                   href="/"
+                                        >
+                                    <i class="fa-regular fa-house fa-fw"></i>
+                                    主页
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                        
+                            
+
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="active"
+                                   href="/program"
+                                        >
+                                    
+                                    编程
+                                    
+                                </a>
+
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                        <li class="navbar-item search search-popup-trigger">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile sheet -->
+    <div class="navbar-drawer h-screen w-full absolute top-0 left-0 bg-background-color flex flex-col justify-between">
+        <ul class="drawer-navbar-list flex flex-col px-4 justify-center items-start">
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                HOME
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full "
+                           href="/"
+                        >
+                            <span>
+                                主页
+                            </span>
+                            
+                                <i class="fa-regular fa-house fa-sm fa-fw"></i>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+                
+                    
+
+                    <li class="drawer-navbar-item text-base my-1.5 flex flex-col w-full">
+                        
+                        <a class="py-1.5 px-2 flex flex-row items-center justify-between gap-1 hover:!text-primary active:!text-primary text-2xl font-semibold group border-b border-border-color hover:border-primary w-full active"
+                           href="/program"
+                        >
+                            <span>
+                                编程
+                            </span>
+                            
+                        </a>
+                        
+
+                        
+                    </li>
+            
+
+            
+            
+        </ul>
+
+        <div class="statistics flex justify-around my-2.5">
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/tags">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">0</div>
+        <div class="label text-third-text-color text-sm">Tags</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/categories">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">0</div>
+        <div class="label text-third-text-color text-sm">Categories</div>
+    </a>
+    <a class="item tag-count-item flex flex-col justify-center items-center w-20" href="/archives">
+        <div class="number text-2xl sm:text-xl text-second-text-color font-semibold">1</div>
+        <div class="label text-third-text-color text-sm">Posts</div>
+    </a>
+</div>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    <div class="page-template-container">
+    
+    
+    
+    <div class="page-template-content markdown-body">
+        
+            <ul>
+<li><a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/hfy1237/article/details/127960423" >https://blog.csdn.net/hfy1237/article/details/127960423 <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></li>
+</ul>
+<h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><p><a class="link"   target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=PyAutoGUI&spm=1001.2101.3001.7020" >PyAutoGUI <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a> 让您的 Python 脚本控制鼠标和键盘以自动与其他应用程序交互。</p>
+<p>官方文档：<a class="link"   target="_blank" rel="noopener" href="https://pyautogui.readthedocs.io/en/latest/"  title="PyAutoGUI  documentation">PyAutoGUI documentation <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a></p>
+<p><strong>常用函数列表</strong></p>
+<table>
+<thead>
+<tr>
+<th>函数名</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&#x3D;&#x3D;基本&#x3D;&#x3D;</td>
+<td></td>
+</tr>
+<tr>
+<td>pyautogui.size()</td>
+<td>返回包含分辨率的元组</td>
+</tr>
+<tr>
+<td>pyautogui.PAUSE</td>
+<td>每个函数的停顿时间，默认0.1s</td>
+</tr>
+<tr>
+<td>pyautogui.FAILSAFE</td>
+<td>是否开启防故障功能，默认True</td>
+</tr>
+<tr>
+<td>&#x3D;&#x3D;键盘&#x3D;&#x3D;</td>
+<td></td>
+</tr>
+<tr>
+<td>pyautogui.press(‘键盘字符’)</td>
+<td>按下并松开指定按键</td>
+</tr>
+<tr>
+<td>pyautogui.keyDown(‘键盘字符’)</td>
+<td>按下指定按键</td>
+</tr>
+<tr>
+<td>pyautogui.keyUp(‘键盘字符’)</td>
+<td>松开指定按键</td>
+</tr>
+<tr>
+<td>pyautogui.hotkey(‘键盘字符1’, ‘键盘字符2’)</td>
+<td>按下多个指定键</td>
+</tr>
+<tr>
+<td>&#x3D;&#x3D;鼠标&#x3D;&#x3D;</td>
+<td></td>
+</tr>
+<tr>
+<td>pyautogui.position()</td>
+<td>返回当前鼠标当前位置的元组</td>
+</tr>
+<tr>
+<td>pyautogui.moveTo(x,y,duration&#x3D;1)</td>
+<td>按绝对位置<strong>移动</strong>鼠标并设置移动时间</td>
+</tr>
+<tr>
+<td>pyautogui.moveRel(x_rel,y_rel,duration&#x3D;4)</td>
+<td>按相对位置<strong>移动</strong>鼠标并设置移动时间</td>
+</tr>
+<tr>
+<td>pyautogui.dragTo(x, y, duration&#x3D;1)</td>
+<td>按绝对位置<strong>拖动</strong>鼠标并设置移动时间</td>
+</tr>
+<tr>
+<td>pyautogui.dragRel(x_rel, y_rel, duration&#x3D;4)</td>
+<td>按相对位置<strong>拖动</strong>鼠标并设置移动时间</td>
+</tr>
+<tr>
+<td>pyautogui.click(x, y)</td>
+<td>鼠标点击指定位置，默认左键</td>
+</tr>
+<tr>
+<td>pyautogui.click(x, y, button&#x3D;’left’)</td>
+<td>鼠标单击左键</td>
+</tr>
+<tr>
+<td>pyautogui.click(x, y, button&#x3D;’right’)</td>
+<td>鼠标单击右键</td>
+</tr>
+<tr>
+<td>pyautogui.click(x, y, button&#x3D;’middle’)</td>
+<td>鼠标单击中间，即滚轮</td>
+</tr>
+<tr>
+<td>pyautogui.doubleClick(10,10)</td>
+<td>鼠标左键双击指定位置</td>
+</tr>
+<tr>
+<td>pyautogui.rightClick(10,10)</td>
+<td>鼠标右键双击指定位置</td>
+</tr>
+<tr>
+<td>pyautogui.middleClick(10,10)</td>
+<td>鼠标中键双击指定位置</td>
+</tr>
+<tr>
+<td>pyautogui.scroll(10)</td>
+<td>鼠标滚轮向上滚动10个单位</td>
+</tr>
+</tbody></table>
+<p>press(), keyDowm(),keyUp(),hotKey()支持的有效字符串列表如下：</p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>字母</td>
+<td>‘a’, ‘b’, ‘c’, ‘d’, ‘e’,’f’, ‘g’, ‘h’, ‘i’, ‘j’, ‘k’, ‘l’, ‘m’, ‘n’, ‘o’, ‘p’, ‘q’, ‘r’, ‘s’, ‘t’, ‘u’, ‘v’, ‘w’, ‘x’, ‘y’, ‘z’</td>
+</tr>
+<tr>
+<td>数字</td>
+<td>‘0’, ‘1’, ‘2’, ‘3’, ‘4’, ‘5’, ‘6’, ‘7’, ‘8’, ‘9’</td>
+</tr>
+<tr>
+<td>符号</td>
+<td><code>&#39;\t&#39;, &#39;\n&#39;, &#39;\r&#39;, &#39; &#39;, &#39;!&#39;, &#39;&quot;&#39;, &#39;#&#39;, &#39;$&#39;, &#39;%&#39;, &#39;&amp;&#39;, &quot;&#39;&quot;, &#39;(&#39;, &#39;)&#39;, &#39;*&#39;, &#39;+&#39;, &#39;,&#39;, &#39;-&#39;, &#39;.&#39;, &#39;/&#39;, , &#39;:&#39;, &#39;;&#39;, &#39;&lt;&#39;, &#39;=&#39;, &#39;&gt;&#39;, &#39;?&#39;, &#39;@&#39;, &#39;[&#39;, &#39;\\&#39;, &#39;]&#39;, &#39;^&#39;, &#39;_&#39;, &#39;`&#39;, &#39;&#123;&#39;, &#39;|&#39;, &#39;&#125;&#39;, &#39;~&#39;,</code></td>
+</tr>
+<tr>
+<td>F键</td>
+<td><code>&#39;f1&#39;, &#39;f10&#39;, &#39;f11&#39;, &#39;f12&#39;, &#39;f13&#39;, &#39;f14&#39;, &#39;f15&#39;, &#39;f16&#39;, &#39;f17&#39;, &#39;f18&#39;, &#39;f19&#39;, &#39;f2&#39;, &#39;f20&#39;, &#39;f21&#39;, &#39;f22&#39;, &#39;f23&#39;, &#39;f24&#39;, &#39;f3&#39;, &#39;f4&#39;, &#39;f5&#39;, &#39;f6&#39;, &#39;f7&#39;, &#39;f8&#39;, &#39;f9&#39;,</code></td>
+</tr>
+<tr>
+<td>数字键盘</td>
+<td><code>&#39;num0&#39;, &#39;num1&#39;, &#39;num2&#39;, &#39;num3&#39;, &#39;num4&#39;, &#39;num5&#39;, &#39;num6&#39;, &#39;num7&#39;, &#39;num8&#39;, &#39;num9&#39;,</code></td>
+</tr>
+<tr>
+<td>其他</td>
+<td><code>&#39;accept&#39;, &#39;add&#39;, &#39;alt&#39;, &#39;altleft&#39;, &#39;altright&#39;, &#39;apps&#39;, &#39;backspace&#39;, &#39;browserback&#39;, &#39;browserfavorites&#39;, &#39;browserforward&#39;, &#39;browserhome&#39;, &#39;browserrefresh&#39;, &#39;browsersearch&#39;, &#39;browserstop&#39;, &#39;capslock&#39;, &#39;clear&#39;, &#39;convert&#39;, &#39;ctrl&#39;, &#39;ctrlleft&#39;, &#39;ctrlright&#39;, &#39;decimal&#39;, &#39;del&#39;, &#39;delete&#39;, &#39;divide&#39;, &#39;down&#39;, &#39;end&#39;, &#39;enter&#39;, &#39;esc&#39;, &#39;escape&#39;, &#39;execute&#39;, &#39;final&#39;, &#39;fn&#39;, &#39;hanguel&#39;, &#39;hangul&#39;, &#39;hanja&#39;, &#39;help&#39;, &#39;home&#39;, &#39;insert&#39;, &#39;junja&#39;, &#39;kana&#39;, &#39;kanji&#39;, &#39;launchapp1&#39;, &#39;launchapp2&#39;, &#39;launchmail&#39;, &#39;launchmediaselect&#39;, &#39;left&#39;, &#39;modechange&#39;, &#39;multiply&#39;, &#39;nexttrack&#39;, &#39;nonconvert&#39;, , &#39;numlock&#39;, &#39;pagedown&#39;, &#39;pageup&#39;, &#39;pause&#39;, &#39;pgdn&#39;, &#39;pgup&#39;, &#39;playpause&#39;, &#39;prevtrack&#39;, &#39;print&#39;, &#39;printscreen&#39;, &#39;prntscrn&#39;, &#39;prtsc&#39;, &#39;prtscr&#39;, &#39;return&#39;, &#39;right&#39;, &#39;scrolllock&#39;, &#39;select&#39;, &#39;separator&#39;, &#39;shift&#39;, &#39;shiftleft&#39;, &#39;shiftright&#39;, &#39;sleep&#39;, &#39;space&#39;, &#39;stop&#39;, &#39;subtract&#39;, &#39;tab&#39;, &#39;up&#39;, &#39;volumedown&#39;, &#39;volumemute&#39;, &#39;volumeup&#39;, &#39;win&#39;, &#39;winleft&#39;, &#39;winright&#39;, &#39;yen&#39;, &#39;command&#39;, &#39;option&#39;, &#39;optionleft&#39;, &#39;optionright&#39;</code></td>
+</tr>
+</tbody></table>
+<h2 id="二、基本使用"><a href="#二、基本使用" class="headerlink" title="二、基本使用"></a>二、基本使用</h2><h3 id="0-坐标说明"><a href="#0-坐标说明" class="headerlink" title="0. 坐标说明"></a>0. 坐标说明</h3><p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="/assets/430fda193a9324d0d55ee5f9d383665b_MD5.png"
+                     
+                ></p>
+<p>坐标的距离通过像素计算，如果你的屏幕分辨率是1920 x 1080，右下角的像素将是1919, 1079（因为坐标从0开始，而不是1）。 </p>
+<h3 id="1-一般功能"><a href="#1-一般功能" class="headerlink" title="1. 一般功能"></a>1. 一般功能</h3><p>① 获取鼠标当前坐标（以像素为单位）</p>
+<blockquote>
+<p>pyautogui.position()</p>
+</blockquote>
+<p>② 获取屏幕尺寸 </p>
+<blockquote>
+<p>pyautogui.size()</p>
+</blockquote>
+<p>③ 判断指定坐标 (x,y) 是否在屏幕内</p>
+<blockquote>
+<p> pyautogui.onScreen(x, y)</p>
+</blockquote>
+<h3 id="2-故障保险"><a href="#2-故障保险" class="headerlink" title="2. 故障保险"></a>2. 故障保险</h3><p>① 控制调用 PyAutoGUI 后的暂停时间（单位：秒）</p>
+<blockquote>
+<p>pyautogui.PAUSE &#x3D; 2.5</p>
+</blockquote>
+<p>② 当故障安全模式为<code>True</code>时，将鼠标移动到左上角将引发一个 <code>pyautogui.FailSafeException</code> 从而中断程序（默认为：True）</p>
+<blockquote>
+<p>pyautogui.FAILSAFE &#x3D; True</p>
+</blockquote>
+<h3 id="3-鼠标控制"><a href="#3-鼠标控制" class="headerlink" title="3. 鼠标控制"></a>3. 鼠标控制</h3><p>① 在 num_Second 秒内将鼠标<strong>移动</strong>到指定坐标</p>
+<blockquote>
+<p>pyautogui.moveTo(x, y, duration&#x3D;num_seconds)</p>
+</blockquote>
+<p>② 相对于鼠标当前位置移动鼠标</p>
+<blockquote>
+<p>pyautogui.moveRel(xOffset, yOffset, duration&#x3D;num_seconds) </p>
+</blockquote>
+<p>③ 在 num_Second 秒内将鼠标<strong>拖动</strong>到指定坐标</p>
+<blockquote>
+<p>pyautogui.dragTo(x, y, duration&#x3D;num_seconds)</p>
+</blockquote>
+<p>④  相对于鼠标当前位置拖动鼠标</p>
+<blockquote>
+<p>pyautogui.dragRel(xOffset, yOffset, duration&#x3D;num_seconds)</p>
+</blockquote>
+<p>⑤ 调用<code>click()</code>只会让鼠标在当前位置用左键单击一次，但关键字参数可以改变这一点，<code>button</code>关键字参数可以<code>&#39;left&#39;</code>是、<code>&#39;middle&#39;</code>或<code>&#39;right&#39;</code>。</p>
+<blockquote>
+<p>pyautogui.click(x&#x3D;moveToX, y&#x3D;moveToY, clicks&#x3D;num_of_clicks, interval&#x3D;secs_between_clicks，button &#x3D; ‘left’)</p>
+</blockquote>
+<p>⑥ 单独调用指定键的点击事件</p>
+<blockquote>
+<p>pyautogui.rightClick(x&#x3D;moveToX, y&#x3D;moveToY)<br>pyautogui.middleClick(x&#x3D;moveToX, y&#x3D;moveToY)<br>pyautogui.doubleClick(x&#x3D;moveToX, y&#x3D;moveToY)<br>pyautogui.tripleClick(x&#x3D;moveToX, y&#x3D;moveToY)</p>
+</blockquote>
+<p>⑦ 正数控制滚轮将向上滚动，负数控制滚轮将向下滚动</p>
+<blockquote>
+<p>pyautogui.scroll(amount_to_scroll, x&#x3D;moveToX, y&#x3D;moveToY)</p>
+</blockquote>
+<p>⑧ 单独调用鼠标的按下和松开事件</p>
+<blockquote>
+<p>pyautogui.mouseDown(x&#x3D;moveToX, y&#x3D;moveToY, button&#x3D;’left’)<br>pyautogui.mouseUp(x&#x3D;moveToX, y&#x3D;moveToY, button&#x3D;’left’)</p>
+</blockquote>
+<h3 id="4-键盘控制"><a href="#4-键盘控制" class="headerlink" title="4. 键盘控制"></a>4. 键盘控制</h3><p>① 在键盘光标处输入指定文本</p>
+<blockquote>
+<p>pyautogui.typewrite(‘Hello world!\n’, interval&#x3D;secs_between_keys)</p>
+</blockquote>
+<p>② 传递密钥等</p>
+<blockquote>
+<p>pyautogui.typewrite([‘a’, ‘b’, ‘c’, ‘left’, ‘backspace’, ‘enter’, ‘f1’], interval&#x3D;secs_between_keys) </p>
+</blockquote>
+<p>③ 键盘热键(如Ctrl-S或Ctrl-Shift-1)可以通过将键名称列表传递给hotkey()来完成：</p>
+<blockquote>
+<p>pyautogui.hotkey(‘ctrl’, ‘c’)  # ctrl-c 复制<br>pyautogui.hotkey(‘ctrl’, ‘v’)  # ctrl-v 粘贴</p>
+</blockquote>
+<p>④ 单独调用按钮的点击事件和松开事件：</p>
+<blockquote>
+<p>pyautogui.keyDown(键名称)<br>pyautogui.keyUp(键名称) </p>
+</blockquote>
+<h3 id="5-消息框函数"><a href="#5-消息框函数" class="headerlink" title="5. 消息框函数"></a>5. 消息框函数</h3><p>如果您需要暂停程序直到用户单击确定，或者想要向用户显示一些信息，则可使用消息框函数。</p>
+<blockquote>
+<p>pyautogui.alert(‘这将显示带有确定按钮的文本。’)<br>pyautogui.confirm(‘这将显示带有确定和取消按钮的文本。’)<br>pyautogui.prompt(‘这样用户就可以输入一个字符串，然后按确定。’)</p>
+</blockquote>
+<h3 id="6-截图功能"><a href="#6-截图功能" class="headerlink" title="6. 截图功能"></a>6. 截图功能</h3><p>① PyAutoGUI使用<a class="link"   target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=Pillow&spm=1001.2101.3001.7020" >Pillow <i class="fa-regular fa-arrow-up-right-from-square fa-sm"></i></a>&#x2F;PIL来存储与图像相关的数据。</p>
+<blockquote>
+<p>pyautogui.screenshot()  # 返回Pillow&#x2F;PIL图像对象<br>pyautogui.screenshot(‘foo.png’)  # 返回Pillow&#x2F;PIL图像对象，并将其保存到文件</p>
+</blockquote>
+<p>② 返回在当前界面找到第一个图标位置的元组 (left, top, width, height) </p>
+<blockquote>
+<p>pyautogui.locateOnScreen(‘looksLikeThis.png’) </p>
+</blockquote>
+<p>③ LocateAllOnScreen()函数将返回屏幕上找到的所有位置的生成器。</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>for i in pyautogui.locateAllOnScreen(‘looksLikeThis.png’)<br>…<br>…<br>(863, 117, 70, 13)<br>(623, 137, 70, 13)<br>(853, 577, 70, 13)<br>(883, 617, 70, 13)<br>(973, 657, 70, 13)<br>(933, 877, 70, 13)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>list(pyautogui.locateAllOnScreen(‘looksLikeThis.png’))<br>[(863, 117, 70, 13), (623, 137, 70, 13), (853, 577, 70, 13), (883, 617, 70, 13), (973, 657, 70, 13), (933, 877, 70, 13)]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>④ 返回屏幕上图像所在位置的XY坐标。</p>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>pyautogui.locateCenterOnScreen(‘looksLikeThis.png’)  # 返回中心坐标 (898，423)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="三、进阶教程"><a href="#三、进阶教程" class="headerlink" title="三、进阶教程"></a>三、进阶教程</h2><h3 id="1-鼠标控制"><a href="#1-鼠标控制" class="headerlink" title="1. 鼠标控制"></a>1. 鼠标控制</h3><h4 id="1-1-pyautogui-size"><a href="#1-1-pyautogui-size" class="headerlink" title="1.1 pyautogui.size()"></a>1.1 pyautogui.size()</h4><p>返回屏幕的分辨率大小，返回类型为元组。</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.size()(<span class="number">1920</span>, <span class="number">1080</span>)</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="1-2-pyautogui-position"><a href="#1-2-pyautogui-position" class="headerlink" title="1.2 pyautogui.position()"></a>1.2 pyautogui.position()</h4><p>返回鼠标光标的当前位置，返回类型为元组。</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.position()(<span class="number">187</span>, <span class="number">567</span>)</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="1-3-pyautogui-onScreen"><a href="#1-3-pyautogui-onScreen" class="headerlink" title="1.3 pyautogui.onScreen()"></a>1.3 pyautogui.onScreen()</h4><p>判断指定位置是否在屏幕内，返回类型为布尔型。</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.onScreen(<span class="number">0</span>, <span class="number">0</span>) <span class="literal">True</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.onScreen(<span class="number">0</span>, -<span class="number">1</span>) <span class="literal">False</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.onScreen(<span class="number">0</span>, <span class="number">99999999</span>) <span class="literal">False</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="1-4-pyautogui-move"><a href="#1-4-pyautogui-move" class="headerlink" title="1.4 pyautogui.move()"></a>1.4 pyautogui.move()</h4><p>移动鼠标光标以当前位置为起点移动指定距离，如果输入 None 则为当前位置的X或Y。</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.moveTo(<span class="number">100</span>, <span class="number">200</span>)   <span class="comment"># moves mouse to X of 100, Y of 200.&gt;&gt;&gt; pyautogui.moveTo(None, 500)  # moves mouse to X of 100, Y of 500.&gt;&gt;&gt; pyautogui.moveTo(600, None)  # moves mouse to X of 600, Y of 500.</span></span><br></pre></td></tr></table></figure></div>
+
+<p> 第三个参数可以设置鼠标移动到指定位置所花费的时间。</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.moveTo(<span class="number">100</span>, <span class="number">200</span>, <span class="number">2</span>)   <span class="comment"># moves mouse to X of 100, Y of 200 over 2 seconds</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="1-5-pyautogui-moveTo"><a href="#1-5-pyautogui-moveTo" class="headerlink" title="1.5 pyautogui.moveTo()"></a>1.5 pyautogui.moveTo()</h4><p>与move()类似，此函数可以按照绝对位置移动鼠标。</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.moveTo(<span class="number">100</span>, <span class="number">200</span>)  <span class="comment"># moves mouse to X of 100, Y of 200.&gt;&gt;&gt; pyautogui.move(0, 50)       # move the mouse down 50 pixels.&gt;&gt;&gt; pyautogui.move(-30, 0)      # move the mouse left 30 pixels.&gt;&gt;&gt; pyautogui.move(-30, None)   # move the mouse left 30 pixels.</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="1-6-pyautogui-drag"><a href="#1-6-pyautogui-drag" class="headerlink" title="1.6 pyautogui.drag()"></a>1.6 pyautogui.drag()</h4><p>以相对位置拖动鼠标，可指定拖动时按住某个键：’left’, ‘middle’, ‘right’。</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.dragTo(<span class="number">100</span>, <span class="number">200</span>, button=<span class="string">&#x27;left&#x27;</span>)     <span class="comment"># drag mouse to X of 100, Y of 200 while holding down left mouse button&gt;&gt;&gt; pyautogui.dragTo(300, 400, 2, button=&#x27;left&#x27;)  # drag mouse to X of 300, Y of 400 over 2 seconds while holding down left mouse button&gt;&gt;&gt; pyautogui.drag(30, 0, 2, button=&#x27;right&#x27;)   # drag the mouse left 30 pixels over 2 seconds while holding down the right mouse button</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="1-7-pyautogui-dragto"><a href="#1-7-pyautogui-dragto" class="headerlink" title="1.7 pyautogui.dragto()"></a>1.7 pyautogui.dragto()</h4><p>以绝对位置拖动鼠标，可指定拖动时按住某个键：’left’, ‘middle’, ‘right’。</p>
+<h4 id="1-8-pyautogui-click"><a href="#1-8-pyautogui-click" class="headerlink" title="1.8 pyautogui.click()"></a>1.8 pyautogui.click()</h4><p>模拟在鼠标当前位置单击鼠标左键。</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.click()  <span class="comment"># click the mouse&gt;&gt;&gt; pyautogui.click(x=100, y=200)  # move to 100, 200, then click the left mouse button.&gt;&gt;&gt; pyautogui.click(button=&#x27;right&#x27;)  # right-click the mouse&gt;&gt;&gt; pyautogui.click(clicks=2)  # double-click the left mouse button&gt;&gt;&gt; pyautogui.click(clicks=2, interval=0.25)  # double-click the left mouse button, but with a quarter second pause in between clicks&gt;&gt;&gt; pyautogui.click(button=&#x27;right&#x27;, clicks=3, interval=0.25)  ## triple-click the right mouse button with a quarter second pause in between clicks</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="1-9-pyautogui-doubleClick"><a href="#1-9-pyautogui-doubleClick" class="headerlink" title="1.9 pyautogui.doubleClick()"></a>1.9 pyautogui.doubleClick()</h4><p>模拟双击鼠标左键。</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.doubleClick()  <span class="comment"># perform a left-button double click</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="1-10-pyautogui-tripleClick"><a href="#1-10-pyautogui-tripleClick" class="headerlink" title="1.10 pyautogui.tripleClick()"></a>1.10 pyautogui.tripleClick()</h4><h4 id="1-11-pyautogui-rightClick"><a href="#1-11-pyautogui-rightClick" class="headerlink" title="1.11 pyautogui.rightClick()"></a>1.11 pyautogui.rightClick()</h4><h4 id="1-12-pyautogui-mouseDown"><a href="#1-12-pyautogui-mouseDown" class="headerlink" title="1.12 pyautogui.mouseDown()"></a>1.12 pyautogui.mouseDown()</h4><p>按下鼠标</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.mouseDown(); pyautogui.mouseUp()  <span class="comment"># does the same thing as a left-button mouse click&gt;&gt;&gt; pyautogui.mouseDown(button=&#x27;right&#x27;)  # press the right button down&gt;&gt;&gt; pyautogui.mouseUp(button=&#x27;right&#x27;, x=100, y=200)  # move the mouse to 100, 200, then release the right button up.</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="1-13-pyautogui-mouseUp"><a href="#1-13-pyautogui-mouseUp" class="headerlink" title="1.13 pyautogui.mouseUp()"></a>1.13 pyautogui.mouseUp()</h4><p>松开鼠标</p>
+<h4 id="1-14-pyautogui-scroll"><a href="#1-14-pyautogui-scroll" class="headerlink" title="1.14 pyautogui.scroll()"></a>1.14 pyautogui.scroll()</h4><p>滚动鼠标滚轮</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.scroll(<span class="number">10</span>)   <span class="comment"># scroll up 10 &quot;clicks&quot;&gt;&gt;&gt; pyautogui.scroll(-10)  # scroll down 10 &quot;clicks&quot;&gt;&gt;&gt; pyautogui.scroll(10, x=100, y=100)  # move mouse cursor to 100, 200, then scroll up 10 &quot;clicks&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="1-15-pyautogui-hscroll"><a href="#1-15-pyautogui-hscroll" class="headerlink" title="1.15 pyautogui.hscroll()"></a>1.15 pyautogui.hscroll()</h4><p>水平滚动鼠标</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.hscroll(<span class="number">10</span>)   <span class="comment"># scroll right 10 &quot;clicks&quot;&gt;&gt;&gt; pyautogui.hscroll(-10)   # scroll left 10 &quot;clicks&quot;</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="1-16-pyautogui-vscroll"><a href="#1-16-pyautogui-vscroll" class="headerlink" title="1.16 pyautogui.vscroll()"></a>1.16 pyautogui.vscroll()</h4><p>垂直滚动鼠标</p>
+<h3 id="2-键盘控制"><a href="#2-键盘控制" class="headerlink" title="2. 键盘控制"></a>2. 键盘控制</h3><h4 id="2-1-pyautogui-write"><a href="#2-1-pyautogui-write" class="headerlink" title="2.1 pyautogui.write()"></a>2.1 pyautogui.write()</h4><p>键入指定字符串</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.write(<span class="string">&#x27;Hello world!&#x27;</span>)                 <span class="comment"># prints out &quot;Hello world!&quot; instantly&gt;&gt;&gt; pyautogui.write(&#x27;Hello world!&#x27;, interval=0.25)  # prints out &quot;Hello world!&quot; with a quarter second delay after each character</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="2-2-pyautogui-press"><a href="#2-2-pyautogui-press" class="headerlink" title="2.2 pyautogui.press()"></a>2.2 pyautogui.press()</h4><p>按一次指定键</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.press(<span class="string">&#x27;enter&#x27;</span>)  <span class="comment"># press the Enter key&gt;&gt;&gt; pyautogui.press(&#x27;f1&#x27;)     # press the F1 key&gt;&gt;&gt; pyautogui.press(&#x27;left&#x27;)   # press the left arrow key</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="2-4-pyautogui-keyDown"><a href="#2-4-pyautogui-keyDown" class="headerlink" title="2.4 pyautogui.keyDown()"></a>2.4 pyautogui.keyDown()</h4><p>按下指定键</p>
+<h4 id="2-5-pyautogui-keyUp"><a href="#2-5-pyautogui-keyUp" class="headerlink" title="2.5 pyautogui.keyUp()"></a>2.5 pyautogui.keyUp()</h4><p>松开指定键</p>
+<h4 id="2-6-pyautogui-hold"><a href="#2-6-pyautogui-hold" class="headerlink" title="2.6 pyautogui.hold()"></a>2.6 pyautogui.hold()</h4><p>保持按住某个键并松开</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">with</span> pyautogui.hold(<span class="string">&#x27;shift&#x27;</span>):        pyautogui.press([<span class="string">&#x27;left&#x27;</span>, <span class="string">&#x27;left&#x27;</span>, <span class="string">&#x27;left&#x27;</span>])</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="2-7-pyautogui-hotkey"><a href="#2-7-pyautogui-hotkey" class="headerlink" title="2.7 pyautogui.hotkey()"></a>2.7 pyautogui.hotkey()</h4><p>实现快捷键</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>pyautogui.hotkey(<span class="string">&#x27;ctrl&#x27;</span>, <span class="string">&#x27;shift&#x27;</span>, <span class="string">&#x27;esc&#x27;</span>)</span><br></pre></td></tr></table></figure></div>
+
+<h3 id="3-消息框函数"><a href="#3-消息框函数" class="headerlink" title="3. 消息框函数"></a>3. 消息框函数</h3><p>PyAutoGUI利用PyMsgBox中的消息框函数提供了一种跨平台的纯Python方式来显示JavaScript样式的消息框。提供了四个消息框函数：</p>
+<h4 id="3-1-pyautogui-alert"><a href="#3-1-pyautogui-alert" class="headerlink" title="3.1 pyautogui.alert()"></a>3.1 pyautogui.alert()</h4><blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>alert(text&#x3D;’’, title&#x3D;’’, button&#x3D;’OK’)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>显示一个简单的消息框，其中包含文本和一个确定按钮。返回单击的按钮的文本。 </p>
+<h4 id="3-2-pyautogui-confirm"><a href="#3-2-pyautogui-confirm" class="headerlink" title="3.2 pyautogui.confirm()"></a>3.2 pyautogui.confirm()</h4><blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>confirm(text&#x3D;’’, title&#x3D;’’, buttons&#x3D;[‘OK’, ‘Cancel’])</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>显示带有确定和取消按钮的消息框。可以自定义按钮的数量和文本。返回单击的按钮的文本。</p>
+<h4 id="3-3-pyautogui-prompt"><a href="#3-3-pyautogui-prompt" class="headerlink" title="3.3 pyautogui.prompt()"></a>3.3 pyautogui.prompt()</h4><blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>prompt(text&#x3D;’’, title&#x3D;’’ , default&#x3D;’’)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>显示带有文本输入和确定和取消按钮的消息框。返回输入的文本，如果单击了取消，则返回None。</p>
+<h4 id="3-4-pyautogui-password"><a href="#3-4-pyautogui-password" class="headerlink" title="3.4 pyautogui.password()"></a>3.4 pyautogui.password()</h4><blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>password(text&#x3D;’’, title&#x3D;’’, default&#x3D;’’, mask&#x3D;’*’)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>显示带有文本输入和确定和取消按钮的消息框。键入的字符显示为*。返回输入的文本，如果单击了取消，则返回None。</p>
+<h3 id="4-截图功能"><a href="#4-截图功能" class="headerlink" title="4. 截图功能"></a>4. 截图功能</h3><p>PyAutoGUI可以截取屏幕截图，将它们保存到文件中，并在屏幕内定位图像。例如，如果您有一个需要单击的按钮的小图像，并且想要在屏幕上找到它，这是很有用的。这些功能由随PyAutoGUI一起安装的PyScreeze模块提供。</p>
+<h4 id="4-1-pyautogui-screenshot"><a href="#4-1-pyautogui-screenshot" class="headerlink" title="4.1 pyautogui.screenshot()"></a>4.1 pyautogui.screenshot()</h4><p>调用<code>screenshot()</code>将返回一个 Image 对象（有关详细信息，请参阅 Pillow 或 PIL 模块文档）。传递文件名字符串会将屏幕截图保存到文件中，并将其作为 Image 对象返回。</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pyautogui&gt;&gt;&gt; im1 = pyautogui.screenshot()&gt;&gt;&gt; im2 = pyautogui.screenshot(<span class="string">&#x27;my_screenshot.png&#x27;</span>)  <span class="comment"># 捕获并保存到本地&gt;&gt;&gt; im3 = pyautogui.screenshot(region=(0,0, 300, 400))  # 捕获指定范围</span></span><br></pre></td></tr></table></figure></div>
+
+<h4 id="4-2-pyautogui-locateOnScreen"><a href="#4-2-pyautogui-locateOnScreen" class="headerlink" title="4.2 pyautogui.locateOnScreen()"></a>4.2 pyautogui.locateOnScreen()</h4><p>获取屏幕坐标。返回值是一个 4 整数元组：(left, top, width, height)。可以传递此元组<code>center()</code>以获取此区域中心的 X 和 Y 坐标。</p>
+<h4 id="4-3-pyautogui-locateCenterOnScreen"><a href="#4-3-pyautogui-locateCenterOnScreen" class="headerlink" title="4.3 pyautogui.locateCenterOnScreen()"></a>4.3 pyautogui.locateCenterOnScreen()</h4><p>返回在屏幕上找到的第一个实例的中心的 (x, y) 坐标。</p>
+<h4 id="4-4-pyautogui-locateAllOnScreen"><a href="#4-4-pyautogui-locateAllOnScreen" class="headerlink" title="4.4 pyautogui.locateAllOnScreen()"></a>4.4 pyautogui.locateAllOnScreen()</h4><p>返回一个生成器，该生成器生成（左、上、宽、高）元组。</p>
+<h4 id="4-5-pyautogui-pixel"><a href="#4-5-pyautogui-pixel" class="headerlink" title="4.5 pyautogui.pixel()"></a>4.5 pyautogui.pixel()</h4><p>获取屏幕截图中像素的 RGB 颜色</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pyautogui&gt;&gt;&gt; im = pyautogui.screenshot()&gt;&gt;&gt; im.getpixel((<span class="number">100</span>, <span class="number">200</span>))(<span class="number">130</span>, <span class="number">135</span>, <span class="number">144</span>)</span><br></pre></td></tr></table></figure></div>
+
+<h4 id="4-6-pyautogui-pixelMatchesColor"><a href="#4-6-pyautogui-pixelMatchesColor" class="headerlink" title="4.6 pyautogui.pixelMatchesColor()"></a>4.6 pyautogui.pixelMatchesColor()</h4><p>验证单个像素是否与给定像素匹配。</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> pyautogui&gt;&gt;&gt; pyautogui.pixelMatchesColor(<span class="number">100</span>, <span class="number">200</span>, (<span class="number">130</span>, <span class="number">135</span>, <span class="number">144</span>))<span class="literal">True</span>&gt;&gt;&gt; pyautogui.pixelMatchesColor(<span class="number">100</span>, <span class="number">200</span>, (<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>))<span class="literal">False</span></span><br></pre></td></tr></table></figure></div>
+
+<h2 id="四、实例"><a href="#四、实例" class="headerlink" title="四、实例"></a>四、实例</h2><h3 id="1-自动点击网页指定图标"><a href="#1-自动点击网页指定图标" class="headerlink" title="1. 自动点击网页指定图标"></a>1. 自动点击网页指定图标</h3><p>参考链接：</p>
+<div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pyautoguiimport time <span class="keyword">while</span> <span class="literal">True</span>:    <span class="comment"># 本页存在指定图标    if pyautogui.locateOnScreen(&#x27;icon.png&#x27;):        time.sleep(0.5)    # 等待 0.5 秒        position = pyautogui.center(pyautogui.locateOnScreen(&#x27;icon.png&#x27;))    # 寻找图标的中心        pyautogui.click(position)    # 点击    # 本页不存在指定图标    else:          pyautogui.scroll(-500)    # 滚动鼠标，进入下一页</span></span><br></pre></td></tr></table></figure></div>
+
+<h3 id="2-获取鼠标当前位置"><a href="#2-获取鼠标当前位置" class="headerlink" title="2. 获取鼠标当前位置"></a>2. 获取鼠标当前位置</h3><div class="highlight-container" data-rel="Python"><figure class="iseeu highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 案例获取鼠标的位置，方便复制我们定位的鼠标坐标点到代码中import pyautoguiimport time  # 获取鼠标位置def get_mouse_positon():  time.sleep(5) # 准备时间  print(&#x27;开始获取鼠标位置&#x27;)  try:    for i in range(10):      # Get and print the mouse coordinates.      x, y = pyautogui.position()      positionStr = &#x27;鼠标坐标点（X,Y）为：&#123;&#125;,&#123;&#125;&#x27;.format(str(x).rjust(4), str(y).rjust(4))      pix = pyautogui.screenshot().getpixel((x, y)) # 获取鼠标所在屏幕点的RGB颜色      positionStr += &#x27; RGB:(&#x27; + str(pix[0]).rjust(3) + &#x27;,&#x27; + str(pix[1]).rjust(3) + &#x27;,&#x27; + str(pix[2]).rjust(        3) + &#x27;)&#x27;      print(positionStr)      time.sleep(0.5) # 停顿时间  except:    print(&#x27;获取鼠标位置失败&#x27;)  if __name__ == &quot;__main__&quot;:  get_mouse_positon()</span></span><br></pre></td></tr></table></figure></div>
+        
+    </div>
+    <div class="page-template-comments">
+        
+    </div>
+</div>
+
+
+                
+
+            </div>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2024&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">airsku</a>
+            
+                
+                <p class="post-count space-x-0.5">
+                    <span>
+                        1 posts in total
+                    </span>
+                    
+                </p>
+            
+        </div>
+        
+            <script data-swup-reload-script src="https://cn.vercount.one/js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">VISITOR COUNT</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">TOTAL PAGE VIEWS</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">POWERED BY <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a></span>
+            <span class="text-sm lg:block">THEME&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.6.1</a></span>
+        </div>
+        
+        
+            <div>
+                Blog up for <span class="odometer" id="runtime_days" ></span> days <span class="odometer" id="runtime_hours"></span> hrs <span class="odometer" id="runtime_minutes"></span> Min <span class="odometer" id="runtime_seconds"></span> Sec
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
+
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
+</div>
+
+    </div>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fa-solid fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="Search..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa-solid fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa-solid fa-spinner fa-spin-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+    
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+
+<script src="/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/utils.js" type="module"></script>
+
+<script src="/js/main.js" type="module"></script>
+
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/layouts/categoryList.js" type="module"></script>
+
+
+
+    
+<script src="/js/tools/localSearch.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
+
+  
+<script src="/js/libs/Typed.min.js"></script>
+
+  
+<script src="/js/plugins/typed.js" type="module"></script>
+
+
+
+
+
+
+
+
+
+<div class="post-scripts" data-swup-reload-script>
+    
+        
+<script src="/js/tools/tocToggle.js" type="module"></script>
+
+<script src="/js/layouts/toc.js" type="module"></script>
+
+<script src="/js/plugins/tabs.js" type="module"></script>
+
+    
+</div>
+
+
+</body>
+</html>
